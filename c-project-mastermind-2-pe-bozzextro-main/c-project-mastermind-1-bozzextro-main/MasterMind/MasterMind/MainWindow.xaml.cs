@@ -159,11 +159,13 @@ namespace MasterMind
                 if (code.Contains(Cbo1.SelectedItem.ToString()))
                 {
                     Lbl1.BorderBrush = new SolidColorBrush(Colors.Wheat);
+                    Lbl1.ToolTip = "Juiste kleur, foute positie";
                     brushCodeHistoriek1 = new SolidColorBrush(Colors.Wheat);
                     minPunten++;
                     if (code[0].Equals(Cbo1.SelectedItem.ToString()))
                     {
                         Lbl1.BorderBrush = new SolidColorBrush(Colors.DarkRed);
+                        Lbl1.ToolTip = "Juiste kleur, juiste positie";
                         brushCodeHistoriek1 = new SolidColorBrush(Colors.DarkRed);
                         minPunten--;
                         aantalCorrecteKleuren++;
@@ -172,12 +174,15 @@ namespace MasterMind
                 else
                 {
                     Lbl1.BorderBrush = new SolidColorBrush(Colors.Black);
+                    Lbl1.ToolTip = "Foute kleur";
                     brushCodeHistoriek1 = new SolidColorBrush(Colors.Black);
                     minPunten += 2;
                 }
                 if (code.Contains(Cbo2.SelectedItem.ToString()))
                 {
                     Lbl2.BorderBrush = new SolidColorBrush(Colors.Wheat);
+                    Lbl2.ToolTip = "Juiste kleur, foute positie";
+
                     brushCodeHistoriek2 = new SolidColorBrush(Colors.Wheat);
                     minPunten++;
                     
@@ -185,6 +190,8 @@ namespace MasterMind
                     if (code[1].Equals(Cbo2.SelectedItem.ToString()))
                     {
                         Lbl2.BorderBrush = new SolidColorBrush(Colors.DarkRed);
+                        Lbl2.ToolTip = "Juiste kleur, juiste positie";
+
                         brushCodeHistoriek2 = new SolidColorBrush(Colors.DarkRed);
                         minPunten--;
                         aantalCorrecteKleuren++;
@@ -194,6 +201,7 @@ namespace MasterMind
                 else
                 {
                     Lbl2.BorderBrush = new SolidColorBrush(Colors.Black);
+                    Lbl2.ToolTip = "Foute kleur";
                     brushCodeHistoriek2 = new SolidColorBrush(Colors.Black);
                     minPunten += 2;
 
@@ -201,12 +209,16 @@ namespace MasterMind
                 if (code.Contains(Cbo3.SelectedItem.ToString()))
                 {
                     Lbl3.BorderBrush = new SolidColorBrush(Colors.Wheat);
+                    Lbl3.ToolTip = "Juiste kleur, foute positie";
+
                     brushCodeHistoriek3 = new SolidColorBrush(Colors.Wheat);
                     minPunten++;
 
 
                     if (code[2].Equals(Cbo3.SelectedItem.ToString()))
                     {
+                        Lbl3.ToolTip = "Juiste kleur, juiste positie";
+
                         Lbl3.BorderBrush = new SolidColorBrush(Colors.DarkRed);
                         brushCodeHistoriek3 = new SolidColorBrush(Colors.DarkRed);
                         minPunten--;
@@ -217,6 +229,7 @@ namespace MasterMind
                 else
                 {
                     Lbl3.BorderBrush = new SolidColorBrush(Colors.Black);
+                    Lbl3.ToolTip = "Foute kleur";
                     brushCodeHistoriek3 = new SolidColorBrush(Colors.Black);
                     minPunten += 2;
 
@@ -224,6 +237,8 @@ namespace MasterMind
                 if (code.Contains(Cbo4.SelectedItem.ToString()))
                 {
                     Lbl4.BorderBrush = new SolidColorBrush(Colors.Wheat);
+                    Lbl4.ToolTip = "Juiste kleur, foute positie";
+
                     brushCodeHistoriek4 = new SolidColorBrush(Colors.Wheat);
                     minPunten++;
 
@@ -231,6 +246,7 @@ namespace MasterMind
                     if (code[3].Equals(Cbo4.SelectedItem.ToString()))
                     {
                         Lbl4.BorderBrush = new SolidColorBrush(Colors.DarkRed);
+                        Lbl4.ToolTip = "Juiste kleur, juiste positie";
                         brushCodeHistoriek4 = new SolidColorBrush(Colors.DarkRed);
                         minPunten--;
                         aantalCorrecteKleuren++;
@@ -240,6 +256,7 @@ namespace MasterMind
                 else
                 {
                     Lbl4.BorderBrush = new SolidColorBrush(Colors.Black);
+                    Lbl4.ToolTip = "Foute kleur";
                     brushCodeHistoriek4 = new SolidColorBrush(Colors.Black);
                     minPunten += 2;
 
@@ -399,6 +416,10 @@ namespace MasterMind
             LblPogingen.Content = $"Poging 0/{maximaalAantalPogingen}";
             LblScore.Content = "Score: 100";
 
+            Lbl1.ToolTip = null;
+            Lbl2.ToolTip = null;
+            Lbl3.ToolTip = null;
+            Lbl4.ToolTip = null;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
