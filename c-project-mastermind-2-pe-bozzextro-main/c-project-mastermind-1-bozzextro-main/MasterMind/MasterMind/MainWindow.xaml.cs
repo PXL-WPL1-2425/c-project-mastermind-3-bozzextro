@@ -27,6 +27,7 @@ namespace MasterMind
         string[] code;
         string[] highScores;
         List<string> spelers = new List<string>();
+        bool firstPlayer = false;
 
         string userName;
 
@@ -64,7 +65,7 @@ namespace MasterMind
             GenereerCode();
             VulCbo();
             highScores = new string[15];
-            
+            DefaultValuesForDebug();
 
         }
         public void GenereerCode()
@@ -101,7 +102,14 @@ namespace MasterMind
             }
         }
 
+        public void DefaultValuesForDebug()
+        {
+            Cbo1.SelectedIndex = 0;
+            Cbo2.SelectedIndex = 0;
+            Cbo3.SelectedIndex = 0;
+            Cbo4.SelectedIndex = 0;
 
+        }
         private void Cbo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(Cbo1.SelectedIndex != -1)
@@ -281,17 +289,38 @@ namespace MasterMind
 
         private void CheckCodeEnPogingen()
         {
-            if(aantalCorrecteKleuren == 4)
+
+            if (aantalCorrecteKleuren == 4)
             {
-                MessageBox.Show("Proficiat, u heeft de code gekraakt!");
-                ResetGame();
+                if (gamesCounter == spelers.Count-1)
+                {
+                    MessageBox.Show($"Proficiat, u heeft de code gekraakt! \nLaatste speler is geweest we beginnen van de eerste.", spelers[gamesCounter]);
+                    firstPlayer = true; 
+                    ResetGame();
+                }
+                else
+                {
+                    MessageBox.Show($"Proficiat, u heeft de code gekraakt! \nNu is {spelers[gamesCounter + 1]} aan de beurt.", spelers[gamesCounter]);
+                    ResetGame();
+                }
             }
+            //hier ook ff rekening houden
             else if(pogingenCounter == maximaalAantalPogingen)
             {
                 string codeNaarCommaSepString = string.Join(", ", code);
-                MessageBox.Show($"Geen pogingen meer! \n De code was : {codeNaarCommaSepString}");
+                if (gamesCounter == spelers.Count-1)
+                {
+                    MessageBox.Show($"Geen pogingen meer! \nDe code was : {codeNaarCommaSepString} \nLaatste speler is geweest we beginnen van de eerste.", spelers[gamesCounter]);
+                    firstPlayer = true;
+                }
+                else
+                {
+                    MessageBox.Show($"Geen pogingen meer! \nDe code was : {codeNaarCommaSepString} \nNu is {spelers[gamesCounter + 1]} aan de beurt.", spelers[gamesCounter]);
+                }
                 ResetGame();
+
             }
+
             /*
             if (aantalCorrecteKleuren == 4)
             {
@@ -336,10 +365,16 @@ namespace MasterMind
 
         private void ResetGame()
         {
-            //naam speler moet nog geimplementeert worden
             highScores[gamesCounter] = $"{userName} - {pogingenCounter} Pogingen - {score}/100";
-            gamesCounter++;
-
+            if (firstPlayer)
+            {
+                gamesCounter = 0;
+                firstPlayer = false;
+            }
+            else
+            {
+                gamesCounter++;
+            }
             GenereerCode();
             Cbo1.SelectedIndex = -1;
             Cbo2.SelectedIndex = -1;
