@@ -26,6 +26,7 @@ namespace MasterMind
         string[] kleurenArray = {"Rood", "Geel", "Oranje", "Wit", "Groen", "Blauw"};
         string[] code;
         string[] highScores;
+        List<string> spelers = new List<string>();
 
         string userName;
 
@@ -387,8 +388,22 @@ namespace MasterMind
             {
                 userName = Interaction.InputBox("Geef een username", "Username", "Jan", 500);
                 if (userName != "" && userName != null)
-                { 
-                    isUserNameChosen = true;
+                {
+                    spelers.Add(userName);
+                    var result = MessageBox.Show(
+                        "Wilt u nog een speler toevoegen?",
+                        "Spelers toevoegen?",
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.Question
+                        );
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        isUserNameChosen = false;
+                    }
+                    else
+                    {
+                        isUserNameChosen = true;
+                    }
                 }
             }
             return userName;
