@@ -53,6 +53,7 @@
             <Button Name="BtnCheck" Click="BtnCheck_Click" Content="Check code" Height="30" Width="120" Background="Green"/>
             <Label Name="LblPogingen" Content="Poging 0/10" Width="120" Height="35" FontSize="16"/>
             <Label Name="LblScore" Content="Score: 100" Width="120" Height="35" FontSize="16"/>
+            <Label Name="LblCurrentPlayer" Width="120" Height="35" FontSize="16"/>
             <StackPanel x:Name="StackPanelHistorie" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">
 
             </StackPanel>

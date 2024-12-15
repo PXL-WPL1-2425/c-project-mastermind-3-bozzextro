@@ -62,6 +62,7 @@ namespace MasterMind
         {
             InitializeComponent();
             userName = StartGame();
+            LblCurrentPlayer.Content = spelers[gamesCounter];
             GenereerCode();
             VulCbo();
             highScores = new string[15];
