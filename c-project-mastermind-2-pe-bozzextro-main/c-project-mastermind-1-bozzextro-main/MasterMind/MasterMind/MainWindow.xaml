@@ -54,6 +54,8 @@
             <Label Name="LblPogingen" Content="Poging 0/10" Width="120" Height="35" FontSize="16"/>
             <Label Name="LblScore" Content="Score: 100" Width="120" Height="35" FontSize="16"/>
             <Label Name="LblCurrentPlayer" Width="120" Height="35" FontSize="16"/>
+            <Button Name="BtnKoopHintKleur" Content="Hint kleur(15 punten)" Margin="10" Click="BtnKoopHintKleur_Click"/>
+            <Button Name="BtnKoopHintKleurEnPlaats" Content="Hint kleur + plaats(25 punten)" Margin="10" Click="BtnKoopHintKleurEnPlaats_Click"/>
             <StackPanel x:Name="StackPanelHistorie" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">
 
             </StackPanel>

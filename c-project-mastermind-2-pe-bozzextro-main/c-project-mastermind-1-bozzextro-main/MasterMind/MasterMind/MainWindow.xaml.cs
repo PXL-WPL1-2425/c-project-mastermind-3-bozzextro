@@ -480,5 +480,38 @@ namespace MasterMind
             LblPogingen.Content = $"Poging {pogingenCounter}/{maximaalAantalPogingen}";
 
         }
+
+        private void BtnKoopHintKleur_Click(object sender, RoutedEventArgs e)
+        {
+            if(score >= 15)
+            {
+                Random random = new Random();
+                int rng = random.Next(0, 4);
+                MessageBox.Show($"Gebruik de kleur {code[rng]}");
+                score -= 15;
+                LblScore.Content = $"Score: {score}";
+            }
+            else
+            {
+                MessageBox.Show("U heeft niet genoeg punten om een hint te kopen", "Niet genoeg punten");
+            }
+        }
+
+        private void BtnKoopHintKleurEnPlaats_Click(object sender, RoutedEventArgs e)
+        {
+            if (score >= 25)
+            {
+                Random random = new Random();
+                int rng = random.Next(0, 4);
+               
+                MessageBox.Show($"Gebruik de kleur {code[rng]} op plaats {rng +1}");
+                score -= 25;
+                LblScore.Content = $"Score: {score}";
+            }
+            else
+            {
+                MessageBox.Show("U heeft niet genoeg punten om een hint te kopen", "Niet genoeg punten");
+            }
+        }
     }
 }
